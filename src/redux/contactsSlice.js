@@ -28,5 +28,5 @@ const contactsSlice = createSlice({
     }
 })
 
-export const contactReducer = persistReducer(persistConfig, contactsSlice.reducer)
+export const persistedContactReducer = persistReducer(persistConfig, contactsSlice.reducer)
 export const {addContact, deleteContact} = contactsSlice.actions

@@ -2,6 +2,9 @@ import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { Form, Input, Button } from '../App.styled';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact, deleteContact } from 'redux/contactsSlice';
+
 export const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');

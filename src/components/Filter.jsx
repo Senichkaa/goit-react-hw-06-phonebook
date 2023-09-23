@@ -1,5 +1,14 @@
+import { changeFilter } from 'redux/filterSlice';
 import { InputList, Label } from './App.styled';
-export const Filter = ({ value, onChange }) => {
+import { useDispatch, useSelector } from 'react-redux';
+const Filter = () => {
+  const dispatch = useDispatch();
+  const filterSelector = useSelector(state => state.filter)
+
+  const onChangeFilter = event => {
+    dispatch(changeFilter({filterValue: event.target.value}))
+  };
+
   return (
     <>
       <Label htmlFor="filter">Find your contacts by name</Label>
@@ -8,9 +17,11 @@ export const Filter = ({ value, onChange }) => {
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         value={value}
-        onChange={onChange}
+        onChange={onChangeFilter}
         placeholder="Find your contact"
       />
     </>
   );
 };
+
+export default Filter;
