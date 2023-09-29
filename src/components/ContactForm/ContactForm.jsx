@@ -30,7 +30,11 @@ export const ContactForm = () => {
     event.preventDefault();
     const id = nanoid();
 
-    if (contacts.find(newContact => newContact.name.toLowerCase() === name)) {
+    if (
+      contacts.find(newContact =>
+        newContact.name.toLowerCase().includes(name.toLowerCase())
+      )
+    ) {
       setName('');
       setNumber('');
       alert(`${name} is already in contacts`);
