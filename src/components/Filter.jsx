@@ -3,10 +3,10 @@ import { InputList, Label } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 const Filter = () => {
   const dispatch = useDispatch();
-  const filterSelector = useSelector(state => state.filter)
+  const filterSelector = useSelector(state => state.filter);
 
   const onChangeFilter = event => {
-    dispatch(changeFilter({filterValue: event.target.value}))
+    dispatch(changeFilter({ filterValue: event.target.value }));
   };
 
   return (
@@ -16,7 +16,7 @@ const Filter = () => {
         type="text"
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        value={value}
+        value={filterSelector}
         onChange={onChangeFilter}
         placeholder="Find your contact"
       />
@@ -24,4 +24,4 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+export { Filter };
