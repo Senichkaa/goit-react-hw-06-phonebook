@@ -6,7 +6,7 @@ const Filter = () => {
   const filterSelector = useSelector(state => state.filter);
 
   const onChangeFilter = event => {
-    dispatch(changeFilter({ filterValue: event.target.value }));
+    dispatch(changeFilter(event.target.value));
   };
 
   return (
